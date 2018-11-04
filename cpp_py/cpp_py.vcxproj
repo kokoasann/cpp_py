@@ -262,6 +262,7 @@
     <ClInclude Include="python\unicodeobject.h" />
     <ClInclude Include="python\warnings.h" />
     <ClInclude Include="python\weakrefobject.h" />
+    <ClInclude Include="Simulation.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp_py.cpp" />
@@ -271,13 +272,20 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Simulation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <CopyFileToFolders Include="modu.pyc">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
     <None Include="python\pydtrace.d" />
     <CopyFileToFolders Include="sample.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
     <CopyFileToFolders Include="testmodule.py">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="vector.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
   </ItemGroup>
