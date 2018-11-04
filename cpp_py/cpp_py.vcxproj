@@ -72,15 +72,21 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>E:\Programing\C++\cpp_py\cpp_py\python;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>E:\Programing\C++\cpp_py\cpp_py\python;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Programing\C++\cpp_py\x64\dlllib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>E:\Programing\C++\cpp_py\cpp_py\python;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>E:\Programing\C++\cpp_py\cpp_py\python;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Programing\C++\cpp_py\x64\dlllib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -110,6 +116,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>E:\Programing\C++\cpp_py\x64\dlllib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>python36_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -148,10 +156,112 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>python36.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:\Programing\C++\cpp_py\x64\dlllib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="python\abstract.h" />
+    <ClInclude Include="python\accu.h" />
+    <ClInclude Include="python\asdl.h" />
+    <ClInclude Include="python\ast.h" />
+    <ClInclude Include="python\bitset.h" />
+    <ClInclude Include="python\bltinmodule.h" />
+    <ClInclude Include="python\boolobject.h" />
+    <ClInclude Include="python\bytearrayobject.h" />
+    <ClInclude Include="python\bytesobject.h" />
+    <ClInclude Include="python\bytes_methods.h" />
+    <ClInclude Include="python\cellobject.h" />
+    <ClInclude Include="python\ceval.h" />
+    <ClInclude Include="python\classobject.h" />
+    <ClInclude Include="python\code.h" />
+    <ClInclude Include="python\codecs.h" />
+    <ClInclude Include="python\compile.h" />
+    <ClInclude Include="python\complexobject.h" />
+    <ClInclude Include="python\datetime.h" />
+    <ClInclude Include="python\descrobject.h" />
+    <ClInclude Include="python\dictobject.h" />
+    <ClInclude Include="python\dtoa.h" />
+    <ClInclude Include="python\dynamic_annotations.h" />
+    <ClInclude Include="python\enumobject.h" />
+    <ClInclude Include="python\errcode.h" />
+    <ClInclude Include="python\eval.h" />
+    <ClInclude Include="python\fileobject.h" />
+    <ClInclude Include="python\fileutils.h" />
+    <ClInclude Include="python\floatobject.h" />
+    <ClInclude Include="python\frameobject.h" />
+    <ClInclude Include="python\funcobject.h" />
+    <ClInclude Include="python\genobject.h" />
+    <ClInclude Include="python\graminit.h" />
+    <ClInclude Include="python\grammar.h" />
+    <ClInclude Include="python\import.h" />
+    <ClInclude Include="python\intrcheck.h" />
+    <ClInclude Include="python\iterobject.h" />
+    <ClInclude Include="python\listobject.h" />
+    <ClInclude Include="python\longintrepr.h" />
+    <ClInclude Include="python\longobject.h" />
+    <ClInclude Include="python\marshal.h" />
+    <ClInclude Include="python\memoryobject.h" />
+    <ClInclude Include="python\metagrammar.h" />
+    <ClInclude Include="python\methodobject.h" />
+    <ClInclude Include="python\modsupport.h" />
+    <ClInclude Include="python\moduleobject.h" />
+    <ClInclude Include="python\namespaceobject.h" />
+    <ClInclude Include="python\node.h" />
+    <ClInclude Include="python\object.h" />
+    <ClInclude Include="python\objimpl.h" />
+    <ClInclude Include="python\odictobject.h" />
+    <ClInclude Include="python\opcode.h" />
+    <ClInclude Include="python\osdefs.h" />
+    <ClInclude Include="python\osmodule.h" />
+    <ClInclude Include="python\parsetok.h" />
+    <ClInclude Include="python\patchlevel.h" />
+    <ClInclude Include="python\pgen.h" />
+    <ClInclude Include="python\pgenheaders.h" />
+    <ClInclude Include="python\pyarena.h" />
+    <ClInclude Include="python\pyatomic.h" />
+    <ClInclude Include="python\pycapsule.h" />
+    <ClInclude Include="python\pyconfig.h" />
+    <ClInclude Include="python\pyctype.h" />
+    <ClInclude Include="python\pydebug.h" />
+    <ClInclude Include="python\pydtrace.h" />
+    <ClInclude Include="python\pyerrors.h" />
+    <ClInclude Include="python\pyexpat.h" />
+    <ClInclude Include="python\pyfpe.h" />
+    <ClInclude Include="python\pygetopt.h" />
+    <ClInclude Include="python\pyhash.h" />
+    <ClInclude Include="python\pylifecycle.h" />
+    <ClInclude Include="python\pymacconfig.h" />
+    <ClInclude Include="python\pymacro.h" />
+    <ClInclude Include="python\pymath.h" />
+    <ClInclude Include="python\pymem.h" />
+    <ClInclude Include="python\pyport.h" />
+    <ClInclude Include="python\pystate.h" />
+    <ClInclude Include="python\pystrcmp.h" />
+    <ClInclude Include="python\pystrhex.h" />
+    <ClInclude Include="python\pystrtod.h" />
+    <ClInclude Include="python\Python-ast.h" />
+    <ClInclude Include="python\Python.h" />
+    <ClInclude Include="python\pythonrun.h" />
+    <ClInclude Include="python\pythread.h" />
+    <ClInclude Include="python\pytime.h" />
+    <ClInclude Include="python\py_curses.h" />
+    <ClInclude Include="python\rangeobject.h" />
+    <ClInclude Include="python\setobject.h" />
+    <ClInclude Include="python\sliceobject.h" />
+    <ClInclude Include="python\structmember.h" />
+    <ClInclude Include="python\structseq.h" />
+    <ClInclude Include="python\symtable.h" />
+    <ClInclude Include="python\sysmodule.h" />
+    <ClInclude Include="python\token.h" />
+    <ClInclude Include="python\traceback.h" />
+    <ClInclude Include="python\tupleobject.h" />
+    <ClInclude Include="python\typeslots.h" />
+    <ClInclude Include="python\ucnhash.h" />
+    <ClInclude Include="python\unicodeobject.h" />
+    <ClInclude Include="python\warnings.h" />
+    <ClInclude Include="python\weakrefobject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp_py.cpp" />
@@ -161,6 +271,15 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="python\pydtrace.d" />
+    <CopyFileToFolders Include="sample.py">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="testmodule.py">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
