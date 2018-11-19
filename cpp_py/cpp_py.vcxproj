@@ -263,6 +263,7 @@
     <ClInclude Include="python\warnings.h" />
     <ClInclude Include="python\weakrefobject.h" />
     <ClInclude Include="Simulation.h" />
+    <ClInclude Include="ThreadTest.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp_py.cpp" />
@@ -273,6 +274,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Simulation.cpp" />
+    <ClCompile Include="ThreadTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="modu.pyc">
@@ -286,6 +288,9 @@
       <FileType>Document</FileType>
     </CopyFileToFolders>
     <CopyFileToFolders Include="vector.py">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="threthre.py">
       <FileType>Document</FileType>
     </CopyFileToFolders>
   </ItemGroup>

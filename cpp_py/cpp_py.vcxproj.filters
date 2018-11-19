@@ -324,6 +324,9 @@
     <ClInclude Include="Simulation.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="ThreadTest.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -335,22 +338,20 @@
     <ClCompile Include="Simulation.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="ThreadTest.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="python\pydtrace.d">
       <Filter>python</Filter>
     </None>
-    <None Include="test.py">
-      <Filter>ソース ファイル</Filter>
-    </None>
-    <None Include="sample.py">
-      <Filter>ソース ファイル</Filter>
-    </None>
-    <None Include="modu.pyc">
-      <Filter>ソース ファイル</Filter>
-    </None>
-    <None Include="vector.py">
-      <Filter>ソース ファイル</Filter>
-    </None>
+    <None Include="threthre.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="modu.pyc" />
+    <CopyFileToFolders Include="sample.py" />
+    <CopyFileToFolders Include="testmodule.py" />
+    <CopyFileToFolders Include="vector.py" />
   </ItemGroup>
 </Project>
