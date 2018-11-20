@@ -346,7 +346,6 @@
     <None Include="python\pydtrace.d">
       <Filter>python</Filter>
     </None>
-    <None Include="master.py" />
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="modu.pyc" />
@@ -354,5 +353,6 @@
     <CopyFileToFolders Include="testmodule.py" />
     <CopyFileToFolders Include="vector.py" />
     <CopyFileToFolders Include="threthre.py" />
+    <CopyFileToFolders Include="thremaster.py" />
   </ItemGroup>
 </Project>

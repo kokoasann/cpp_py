@@ -1,7 +1,7 @@
 #include "pch.h"
 #include <iostream>
 #include "ThreadTest.h"
-
+#include <Windows.h>
 
 int FindNum(int num)
 {
@@ -83,9 +83,13 @@ void ThreadTest::py_exe()
 
 		PyObject *pName, *pMod, *pFunc, *pArgs, *pValue;
 
-		pName = PyUnicode_DecodeFSDefault("thremaster");
+		char name[] = "thremaster";
+		pName = PyUnicode_DecodeFSDefault(name);
+		//pName = PyUnicode_DecodeUTF8("thremaster",10,"a");
 
 		pMod = PyImport_Import(pName);
+		//pMod = PyImport_ImportModule("thremaster");
+		//pMod = PyImport_AddModule("thremaster");
 
 		Py_DECREF(pName);
 
@@ -95,13 +99,13 @@ void ThreadTest::py_exe()
 		PyObject* pNum = PyUnicode_DecodeUTF8("threthre",8,"d");
 		PyTuple_SetItem(pArgs, 0, pNum);
 
-		pValue = PyObject_CallObject(pFunc, pArgs);
+		PyObject_CallObject(pFunc, pArgs);
 
-		nextnum = PyLong_AsLong(pValue);
+		//nextnum = PyLong_AsLong(pValue);
 		
 		Py_DECREF(pMod);
 		Py_DECREF(pFunc);
-		Py_DECREF(pValue);
+		//Py_DECREF(pValue);
 
 		end = true;
 
