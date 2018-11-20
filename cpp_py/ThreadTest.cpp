@@ -1,4 +1,5 @@
 #include "pch.h"
+#include <iostream>
 #include "ThreadTest.h"
 
 
@@ -19,8 +20,24 @@ PyObject* GetMyNum(PyObject* self, PyObject* args)
 
 	return pi;
 }
+
+PyObject* printCpp(PyObject* self, PyObject* args)
+{
+	int cnt = PyTuple_Size(args);
+	for (int i = 0; i < cnt; i++)
+	{
+		PyObject* pitem = PyTuple_GetItem(args, i);
+		char* text = PyUnicode_AsUTF8(pitem);
+		std::cout << text << "\n";
+
+		delete text;
+	}
+	return nullptr;
+}
+
 PyMethodDef meths[] = {
 	{ "GetMyNum",GetMyNum,METH_VARARGS,"aaa" },
+	{"printCpp",printCpp,METH_VARARGS,"print"},
 	{NULL,NULL,0,NULL}
 };
 PyModuleDef module = { PyModuleDef_HEAD_INIT, "thretes", NULL, -1, meths,NULL, NULL, NULL, NULL };
@@ -57,25 +74,25 @@ void ThreadTest::py_exe()
 		return;
 	isExe = true;
 
-	//PyEval_InitThreads();
+	/*PyEval_InitThreads();
 
-	//th.reset(new std::thread([&]
-	//{
-		//PyGILState_STATE gils;
-		//gils = PyGILState_Ensure();
+	th.reset(new std::thread([&]
+	{
+		PyGILState_STATE gils;
+		gils = PyGILState_Ensure();*/
 
 		PyObject *pName, *pMod, *pFunc, *pArgs, *pValue;
 
-		pName = PyUnicode_DecodeFSDefault("threthre");
+		pName = PyUnicode_DecodeFSDefault("thremaster");
 
 		pMod = PyImport_Import(pName);
 
 		Py_DECREF(pName);
 
-		pFunc = PyObject_GetAttrString(pMod, "func");
+		pFunc = PyObject_GetAttrString(pMod, "execute");
 
 		pArgs = PyTuple_New(1);
-		PyObject* pNum = PyLong_FromLong(mynum);
+		PyObject* pNum = PyUnicode_DecodeUTF8("threthre",8,"d");
 		PyTuple_SetItem(pArgs, 0, pNum);
 
 		pValue = PyObject_CallObject(pFunc, pArgs);
@@ -88,15 +105,15 @@ void ThreadTest::py_exe()
 
 		end = true;
 
-		//PyGILState_Release(gils);
-	//}));
-	//ts = PyEval_SaveThread();
+		/*PyGILState_Release(gils);
+	}));
+	ts = PyEval_SaveThread();*/
 }
 
 pyinit::pyinit()
 {
 	PyImport_AppendInittab("thretes", modinit);
-
+	//Py_InitializeEx(1);
 	Py_Initialize();
 }
 
